@@ -1,0 +1,24 @@
+@import "src/styles/constants";
+.dropdown-default {
+
+  &_list{
+    box-shadow: $subMenu;
+    padding: 20px;
+    background: $cyprus;
+    color: $white;
+    border-radius: 0 0 $borderRadius4 $borderRadius4;
+
+    .typ-16{
+      &:hover{
+        cursor: pointer;
+        color: $magicMint
+      }
+    }
+  }
+
+  *:first-child{
+    *{
+      cursor: pointer;
+    }
+  }
+}

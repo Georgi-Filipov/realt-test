@@ -1,0 +1,28 @@
+@import 'src/styles/constants';
+.input-number {
+  margin: 0;
+
+  .ant-input {
+    font-size: 15px;
+    border-color: $aquaHaze;
+    &-number {
+      width: 100%;
+      border-color: $aquaHaze;
+    }
+  }
+
+  .ant-form-item-explain.ant-form-item-explain-error {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+    color: $error;
+  }
+
+  .ant-input-number-handler-wrap {
+    display: none;
+  }
+}
+.ant-form-item-has-error .ant-input-number {
+  border-color: $error;
+}

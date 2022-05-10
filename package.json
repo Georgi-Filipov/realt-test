@@ -49,11 +49,21 @@
     "start": "craco start",
     "build": "craco build",
     "test": "craco test",
-    "prettier": "npx prettier src test --check",
-    "prettier:fix": "npm run prettier -- --write",
-    "lint": "tsc --noEmit && eslint --max-warnings=0 --ext=js --ext=jsx ./src",
-    "lint:fix": "tsc --noEmit && eslint --ext=js --ext=jsx ./src --fix",
-    "lint:staged": "tsc --noEmit && lint-staged"
+    "eject": "react-scripts eject",
+    "lint": "eslint --max-warnings=0 --ext=js --ext=jsx ./src",
+    "lint:fix": "eslint --ext=js --ext=jsx ./src --fix",
+    "lint:staged": "lint-staged"
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "tsc --noEmit && lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx}": [
+      "eslint --fix --max-warnings=0",
+      "git add"
+    ]
   },
   "browserslist": {
     "production": [

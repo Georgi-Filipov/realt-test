@@ -1,0 +1,27 @@
+@import "../../styles/constants";
+
+.ant-notification-notice-success{
+  padding: 12px 14px;
+  background-color: $successSurface;
+  .ant-notification-notice-icon{
+    display: none;
+  }
+  .ant-notification-notice-message{
+    display: flex;
+    align-items: center;
+    color: $white;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19px;
+    margin-left: 0;
+    padding-right: 50px;
+  }
+  .ant-notification-notice-close{
+    top: 5px;
+    svg{
+      path{
+        fill: $white;
+      }
+    }
+  }
+}

@@ -1,0 +1,16 @@
+@import "src/styles/constants";
+.input-search{
+  width: 100%;
+  margin: 0;
+
+  .ant-input-group-addon:last-of-type{
+    display: none;
+  }
+  .ant-input-group-addon{
+    border: none;
+  }
+  .ant-input{
+    font-size: 15px;
+    border: none;
+  }
+}

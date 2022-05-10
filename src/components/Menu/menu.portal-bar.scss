@@ -1,0 +1,45 @@
+@import "src/styles/constants";
+.menu-portal-bar{
+  border: none;
+  background: none;
+
+  &_empty{
+    .ant-menu-submenu-arrow{
+      display: none;
+    }
+  }
+  .ant-menu-sub{
+    background: $cyprus;
+
+    .ant-menu-item{
+      padding: 0 10px 0 23px !important;
+    }
+  }
+  .ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected{
+    background: none;
+    .ant-menu-title-content{
+      color: $magicMint;
+    }
+    &:after{
+      display: none;
+    }
+  }
+  .ant-menu-item{
+    background: none;
+  }
+  .ant-menu-item:hover{
+
+    cursor: pointer;
+    .ant-menu-title-content {
+      color: $magicMint;
+    }
+  }
+  .ant-menu-title-content{
+    color: $white;
+    font-size: 16px;
+    line-height: 19px;
+  }
+  .ant-menu-submenu-arrow{
+    color: $white !important;
+  }
+}

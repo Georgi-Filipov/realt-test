@@ -1,0 +1,43 @@
+@import 'src/styles/constants';
+
+.ant-modal-wrap {
+  position: absolute;
+}
+
+.ant-modal-mask {
+  position: absolute;
+  background: $modal;
+  backdrop-filter: blur(5px);
+}
+
+.modal-default {
+  .ant-modal-close {
+    margin: 30px 46px;
+    height: 36px;
+    width: 36px;
+    &-x {
+      height: inherit;
+      width: inherit;
+    }
+  }
+
+  .ant-modal-content {
+    padding: 30px 46px;
+
+    .ant-modal-header {
+      padding-top: 0;
+      padding-right: 50px;
+
+      .ant-modal-title {
+        font-size: 28px;
+        line-height: 34px;
+
+        color: $cyprus;
+      }
+    }
+
+    .ant-modal-body {
+      padding: 0;
+    }
+  }
+}

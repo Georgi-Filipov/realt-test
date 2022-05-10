@@ -1,0 +1,23 @@
+@import 'src/styles/constants';
+
+.modal-confirm{
+  .ant-modal-content{
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.25);
+    width: 600px;
+  }
+  .ant-modal-confirm-body {
+    .ant-modal-confirm-title {
+      color: $aquaDeep;
+      font-size: 28px;
+    }
+  }
+  &.ant-modal-confirm .ant-modal-confirm-btns {
+    display: flex;
+    justify-content: center;
+    float: none;
+  }
+  &.ant-modal.ant-modal-confirm.ant-modal-confirm-confirm{
+    width: 50% !important;
+  }
+}
+

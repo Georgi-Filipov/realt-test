@@ -1,0 +1,10 @@
+.container-twins-blocks{
+  .blocks{
+    &:first-of-type{
+      padding-right: 16px;
+    }
+    &:last-of-type{
+      padding-left: 16px;
+    }
+  }
+}

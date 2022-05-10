@@ -1,0 +1,23 @@
+// Extra large screens, TV
+$screen-xl: 1200px;
+$screen-xl-min: $screen-xl;
+
+// Desktops, large screens
+$screen-lg: 1024px;
+$screen-lg-min: $screen-lg;
+$screen-lg-max: ($screen-xl-min - 1);
+
+// Small screens, laptops
+$screen-md: 768px;
+$screen-md-min: $screen-md;
+$screen-md-max: ($screen-lg-min - 1);
+
+// iPads, Tablets
+$screen-sm: 480px;
+$screen-sm-min: $screen-sm;
+$screen-sm-max: ($screen-md-min - 1);
+
+// Mobile devices
+$screen-xs: 320spx;
+$screen-xs-min: $screen-xs;
+$screen-xs-max: ($screen-sm-min - 1);

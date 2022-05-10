@@ -1,0 +1,26 @@
+@import 'src/styles/constants';
+
+.button-default {
+  &.ant-btn-link{
+    padding: 0;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    span {
+      text-decoration: underline;
+    }
+    &:hover {
+      color: $link;
+    }
+  }
+
+  &.ant-btn-ghost{
+    color: $white;
+    border: $gullGray;
+    background: $gullGray;
+
+    &:hover {
+      background: $cadetBlue;
+    }
+  }
+}

@@ -1,0 +1,21 @@
+@import "src/styles/constants";
+.checkbox-default {
+  margin-bottom: 0;
+  .ant-form-item-control-input{
+    min-height: 30px;
+  }
+  &.ant-form-item-has-error {
+    .ant-checkbox-inner {
+    }
+  }
+  .ant-checkbox:not(.ant-checkbox-checked){
+    .ant-checkbox-inner {
+      background: $aquaHaze;
+      border-radius: 2px;
+      border-color: $mercury;
+    }
+  }
+  .ant-checkbox + span{
+    color: $greenLabels;
+  }
+}

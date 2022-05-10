@@ -1,0 +1,17 @@
+@import "src/styles/constants";
+.radio-group {
+  span {
+    font-size: 14px;
+    &.ant-radio + * {
+      margin: auto;
+    }
+  }
+  .ant-radio-group.ant-radio-group-outline {
+    label:first-child{
+      margin-right: 30px;
+    }
+  }
+  .ant-form-item-explain.ant-form-item-explain-error{
+    color: $error;
+  }
+}

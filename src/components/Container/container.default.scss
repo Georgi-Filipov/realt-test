@@ -1,0 +1,28 @@
+@import "src/styles/constants";
+
+.container-nav-back-title {
+  padding: 50px 0;
+
+  .container-header {
+    &_back {
+      padding-right: 25px;
+
+      svg {
+        cursor: pointer;
+        path {
+          fill: $bayOfMany;
+        }
+      }
+    }
+
+    &_header {
+      .typ-28 {
+        color: $bayOfMany;
+      }
+    }
+  }
+
+  .container-body {
+    padding-top: 40px;
+  }
+}

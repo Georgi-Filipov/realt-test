@@ -1,0 +1,23 @@
+@import 'src/styles/constants';
+.input-default {
+  margin: 0;
+  .ant-input {
+    font-size: 15px;
+    border-color: $aquaHaze;
+  }
+
+  .ant-input-affix-wrapper {
+    border-color: $aquaHaze;
+  }
+
+  .ant-form-item-explain.ant-form-item-explain-error {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+    color: $error;
+  }
+}
+.ant-form-item-has-error :not(.ant-input-disabled):not(.ant-input-borderless).ant-input{
+  border-color: $error;
+}

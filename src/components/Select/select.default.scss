@@ -1,0 +1,36 @@
+@import 'src/styles/constants';
+.ant-select:not(.ant-select-customize-input) .ant-select-selector {
+  border: 0.5px solid $gullGray;
+  background: $aquaHaze;
+}
+
+.ant-select-arrow {
+  height: 100%;
+  width: 40px;
+  margin-right: -11px;
+  margin-top: -20px;
+  border: 0.5px solid $gullGray;
+  .anticon {
+    vertical-align: -1.125em;
+  }
+}
+
+.ant-form-item-explain.ant-form-item-explain-error{
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+  color: $error;
+}
+
+.ant-form-item-has-error .ant-select:not(.ant-select-disabled):not(.ant-select-customize-input) .ant-select-selector{
+  border-color: $error !important;
+}
+
+.ant-select.ant-select.ant-select-multiple{
+  .ant-select-selection-item{
+    background: $primary;
+    border-color: $primary;
+    color: $white;
+  }
+}
