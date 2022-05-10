@@ -1,5 +1,6 @@
+import 'src/index.less';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from 'src/App';
+import { Router } from 'src/router';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<Router />, document.getElementById('root'));
