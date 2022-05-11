@@ -1,31 +1,21 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import { Form, Row, Typography } from 'antd';
 import { Select } from 'src/components/Select';
 import Input from 'src/components/Input/Input';
 import { Card } from 'src/components/Card';
+import { getAllApartments } from 'src/helpers/actions';
 import './style.scss';
-import { Link } from 'react-router-dom';
-
-const data = {
-	count: 1,
-	next: null,
-	previous: null,
-	results: [
-		{
-			id: 1,
-			title: 'Однокомнатная квартира на пр. Независимости, 60',
-			price: 300,
-			currency: 'USD',
-			image: 'http://127.0.0.1:8000/api/media/some_photo.png',
-			city: 'Минск',
-			location_type: 'Жилая',
-			rent_type: 'Аренда',
-			hot: false,
-		},
-	],
-};
 
 const SearchPage = () => {
+	const dispatch = useDispatch();
+	const apartmentsList = useSelector(store => store.apartments.apartmentsList);
+
+	useEffect(() => {
+		dispatch(getAllApartments());
+	}, []);
+
 	return (
 		<div className="page-search">
 			<Form className="page-search__form">
@@ -42,7 +32,7 @@ const SearchPage = () => {
 				</Row>
 			</Form>
 			<div className="page-search__list">
-				{data.results.map(el => (
+				{apartmentsList.map(el => (
 					<PlaceCard {...el} />
 				))}
 			</div>

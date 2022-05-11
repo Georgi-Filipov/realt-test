@@ -9,7 +9,14 @@ import {
 	setLocationTypes,
 	setRentTypes,
 } from 'src/store/reducers/mainInfoSlice';
-import { clearApartmentInfo, setApartmentInfoLoading, setApartmentInfo } from 'src/store/reducers/apartmentsSlice';
+import {
+	clearApartmentInfo,
+	setApartmentInfoLoading,
+	setApartmentInfo,
+	setApartmentsList,
+	clearApartmentsList,
+	setApartmentsListLoading,
+} from 'src/store/reducers/apartmentsSlice';
 
 export const getAllCities = body => dispatch =>
 	fetchWrapper({
@@ -51,11 +58,20 @@ export const getAllCategories = body => dispatch =>
 		})
 		.catch(() => dispatch(clearCategories()));
 
-export const getAllApartments = body => dispatch =>
-	fetchWrapper({
-		url: 'api/all-apartments',
+export const getAllApartments = body => dispatch => {
+	dispatch(setApartmentsListLoading(true));
+	return fetchWrapper({
+		url: 'all-apartments',
 		body,
-	});
+	})
+		.then(resp => {
+			dispatch(setApartmentsList(resp.results));
+		})
+		.catch(() => dispatch(clearApartmentsList()))
+		.finally(() => {
+			dispatch(setApartmentsListLoading(false));
+		});
+};
 
 export const getApartmentDetails = id => dispatch => {
 	dispatch(setApartmentInfoLoading(true));
