@@ -1,4 +1,4 @@
-import { fetchWrapper } from './fetch';
+import { fetchWrapper } from 'src/helpers/fetch';
 import {
 	clearCategories,
 	clearCities,
@@ -8,7 +8,7 @@ import {
 	setCities,
 	setLocationTypes,
 	setRentTypes,
-} from '../store/reducers/mainInfoSlice';
+} from 'src/store/reducers/mainInfoSlice';
 
 export const getAllCities = body => dispatch =>
 	fetchWrapper({
