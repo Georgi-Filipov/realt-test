@@ -1,0 +1,27 @@
+.item-card {
+	padding: 16px;
+	border-radius: 8px;
+	box-shadow: rgba(209, 209, 213, 1) 0 5px 15px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	width: 400px;
+	background-color: #fff;
+
+	&__image {
+		width: 100%;
+		height: 180px;
+	}
+
+	&__title.ant-typography,
+	&__subtitle.ant-typography {
+		display: block;
+		text-align: center;
+		margin: 8px 0 0;
+	}
+
+	&__button {
+		margin-top: 16px;
+	}
+}

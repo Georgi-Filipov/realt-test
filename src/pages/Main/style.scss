@@ -1,0 +1,16 @@
+.page-main {
+	.usage {
+		flex-wrap: nowrap;
+		.item-card {
+			margin-right: 16px;
+			height: 450px;
+			transition: .3s;
+			&:last-child {
+				margin-right: 0;
+			}
+			&:hover {
+				transform: scale(1.05);
+			}
+		}
+	}
+}

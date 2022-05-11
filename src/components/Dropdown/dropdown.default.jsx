@@ -28,12 +28,7 @@ const List = ({ options }) => {
 const Default = ({ children, className, options, ...props }) => {
 	return (
 		<div className={cn('dropdown-default', className)}>
-			<Dropdown
-				getPopupContainer={el => {
-					return document.querySelector('.dropdown-default') || el;
-				}}
-				overlay={<List options={options} />}
-				{...props}>
+			<Dropdown overlay={<List options={options} />} {...props}>
 				{children}
 			</Dropdown>
 		</div>
