@@ -2,6 +2,7 @@
   "name": "realt-application",
   "version": "1.0.1",
 	"proxy": "http://gipsyshit.pythonanywhere.com",
+	"homepage": "https://George-victorious.github.io/realt-application",
   "private": true,
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
@@ -54,8 +55,10 @@
     "eject": "react-scripts eject",
     "lint": "eslint --max-warnings=0 --ext=js --ext=jsx ./src",
     "lint:fix": "eslint --ext=js --ext=jsx ./src --fix",
-    "lint:staged": "lint-staged"
-  },
+    "lint:staged": "lint-staged",
+		"predeploy": "npm run build",
+		"deploy": "gh-pages -d build"
+	},
   "husky": {
     "hooks": {
       "pre-push": "tsc --noEmit && lint-staged"
