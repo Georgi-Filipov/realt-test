@@ -42,7 +42,7 @@ export const apartmentsSlice = createSlice({
 		setApartmentInfo: (state, { payload }) => {
 			state.apartmentInfo = payload;
 		},
-		clearApartmentInfo: state => {
+		clearApartmentInfo: () => {
 			// state.apartmentInfo = {};
 		},
 		setApartmentInfoLoading: (state, { payload }) => {

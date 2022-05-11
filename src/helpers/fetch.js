@@ -33,7 +33,7 @@ export function fetchWrapper(
 	return fetch(`${API_HOST}/api/${url}${query}`, requestParams).then(resp => {
 		if (resp.status >= 200 && resp.status < 400) {
 			if (resp.status === 201) Success({ description: messages.success });
-			return resp.json().catch(err => {});
+			return resp.json().catch(() => {});
 		}
 		Error({ description: 'Не валидные параметры запроса' });
 		return {};
