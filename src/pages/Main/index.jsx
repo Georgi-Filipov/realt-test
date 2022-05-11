@@ -1,11 +1,14 @@
 import React from 'react';
 import { Row } from 'antd';
+import { useSelector } from 'react-redux';
 import { MainSearch } from '../../features/MainSearch';
 import { ItemCard } from '../../features/ItemCard';
 import { history } from '../../router';
 import './style.scss';
 
 const Main = () => {
+	const data = useSelector(store => store.mainInfo);
+	console.log(data);
 	return (
 		<div className="page-main">
 			<MainSearch />
