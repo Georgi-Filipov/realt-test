@@ -2,7 +2,7 @@
   "name": "realt-application",
   "version": "1.0.1",
 	"proxy": "http://gipsyshit.pythonanywhere.com",
-	"homepage": "https://George-victorious.github.io/realt-application",
+	"homepage": "https://Georgi-Filipov.github.io/realt-application",
   "private": true,
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
