@@ -6,6 +6,7 @@ import { Select } from 'src/components/Select';
 import Input from 'src/components/Input/Input';
 import { Card } from 'src/components/Card';
 import { getAllApartments } from 'src/helpers/actions';
+import { clearApartmentsList } from 'src/store/reducers/apartmentsSlice';
 import './style.scss';
 
 const SearchPage = () => {
@@ -14,6 +15,7 @@ const SearchPage = () => {
 
 	useEffect(() => {
 		dispatch(getAllApartments());
+		return () => dispatch(clearApartmentsList());
 	}, []);
 
 	return (

@@ -1,3 +1,50 @@
 .main-search {
-	
+	margin-bottom: 32px;
+	height: 450px;
+	position: relative;
+
+	&__image {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		border-radius: 32px;
+	}
+
+	&__form {
+		display: flex;
+
+		&-wrap {
+			.ant-typography {
+				text-align: center;
+			}
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			background-color: #fff;
+			padding: 8px;
+			border-radius: 16px;
+
+			.select-default {
+				margin-bottom: 0;
+				width: 250px;
+				.ant-select-arrow {
+					display: none;
+				}
+				&:first-of-type .ant-select-selector {
+					border-radius: 16px 0 0 16px;
+				}
+				&:last-of-type .ant-select-selector {
+					border-radius: 0 16px 16px 0;
+				}
+			}
+			.button-default {
+				margin-left: 8px;
+				border-radius: 16px;
+			}
+		}
+	}
 }

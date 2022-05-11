@@ -9,6 +9,7 @@
 				margin-right: 0;
 			}
 			&:hover {
+				z-index: 1;
 				transform: scale(1.05);
 			}
 		}

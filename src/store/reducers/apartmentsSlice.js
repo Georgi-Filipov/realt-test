@@ -34,7 +34,7 @@ export const apartmentsSlice = createSlice({
 			state.apartmentsList = [...state.apartmentsList, ...payload];
 		},
 		clearApartmentsList: state => {
-			state.location_types = [];
+			state.apartmentsList = [];
 		},
 		setApartmentsListLoading: (state, { payload }) => {
 			state.apartmentsListLoading = payload;
