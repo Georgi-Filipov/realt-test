@@ -88,3 +88,11 @@ export const getApartmentDetails = id => dispatch => {
 			dispatch(setApartmentInfoLoading(false));
 		});
 };
+
+export const createPost = body => dispatch => {
+	return fetchWrapper({
+		url: `apartment`,
+		method: 'POST',
+		body,
+	});
+};

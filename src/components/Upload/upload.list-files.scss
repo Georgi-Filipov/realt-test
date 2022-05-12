@@ -1,0 +1,49 @@
+.upload-list-files {
+  display: flex !important;
+  flex-direction: row !important;
+  position: relative;
+  .ant-form-item-label {
+    padding: 0 8px 0 0;
+    height: 40px;
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    align-items: center;
+
+    label{
+      &:after{
+        display: none;
+      }
+    }
+  }
+  .ant-form-item-control-input-content {
+    text-align: right;
+
+    .ant-upload-list-item {
+      text-align: left;
+    }
+
+    button {
+      padding-right: 0;
+      padding-left: 0;
+      & span {
+        text-decoration: underline !important;
+      }
+    }
+
+    .ant-upload-list-item {
+      height: min-content;
+      .ant-upload-text-icon {
+        display: none;
+      }
+      .ant-upload-list-item-info {
+        padding: 0;
+      }
+      .ant-upload-list-item-name {
+        padding-left: 0;
+        overflow: inherit !important;
+      }
+    }
+  }
+}
