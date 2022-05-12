@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Row } from 'antd';
 import cn from 'classnames';
 import { Button, Container } from 'src/components';
-import { PlusOutlined } from '@ant-design/icons';
+import { HomeOutlined, PlusOutlined } from '@ant-design/icons';
 import { history } from 'src/router';
 import { ROUTES } from 'src/router/constants';
 import { HEADER_OPTIONS } from './constants';
@@ -24,10 +24,10 @@ const Header = () => {
 	return (
 		<div className="portal-header">
 			<Container>
-				<div className="portal-header__logo">
-					<img src="" alt="" />
-					Savills
-				</div>
+				<Link to={ROUTES.PORTAL} className="portal-header__logo">
+					<HomeOutlined className="portal-header__logo__icon" />
+					<span className="portal-header__logo__name">Savills</span>
+				</Link>
 				<Row className="portal-header__tabs">
 					{HEADER_OPTIONS.map(el => (
 						<Button

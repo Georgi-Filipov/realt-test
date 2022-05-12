@@ -5,15 +5,13 @@ import { Col, Form, Row, Typography } from 'antd';
 import { Select, Input, Card, Button } from 'src/components';
 import { getAllApartments } from 'src/helpers/actions';
 import { clearApartmentsList } from 'src/store/reducers/apartmentsSlice';
+import { BUTTON_TYPES } from 'src/components/Button';
 import './style.scss';
-import { BUTTON_TYPES } from '../../components/Button';
-import { useMinMax, useRequired } from '../../helpers/hooks';
 
 const SearchPage = () => {
 	const dispatch = useDispatch();
 	const apartmentsList = useSelector(store => store.apartments.apartmentsList);
 	const citiesOptions = useSelector(store => store.mainInfo.cities);
-	const rentTypesOptions = useSelector(store => store.mainInfo.rent_types);
 	const locationTypesOptions = useSelector(store => store.mainInfo.location_types);
 
 	useEffect(() => {

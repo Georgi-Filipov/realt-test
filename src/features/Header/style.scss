@@ -11,6 +11,18 @@
 		justify-content: space-between;
 	}
 
+	&__logo {
+		&__icon {
+			font-size: 56px;
+			margin-right: 16px;
+		}
+		&__name {
+			font-size: 56px;
+			line-height: 56px;
+			font-family: 'Oleo Script Swash Caps', cursive;
+		}
+	}
+
 	&__tabs {
 		height: inherit;
 		button {

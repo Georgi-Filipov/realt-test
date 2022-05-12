@@ -1,11 +1,15 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { Row } from 'antd';
-import { MainSearch } from '../../features/MainSearch';
-import { ItemCard } from '../../features/ItemCard';
-import { history } from '../../router';
+import { MainSearch, ItemCard } from 'src/features';
+import { history } from 'src/router';
 import './style.scss';
 
 const Main = () => {
+	const rentTypesOptions = useSelector(store => store.mainInfo.rent_types);
+	const buyType = rentTypesOptions.find(el => el.label === 'Продажа')?.value;
+	const rentType = rentTypesOptions.find(el => el.label === 'Аренда')?.value;
+
 	return (
 		<div className="page-main">
 			<MainSearch />
@@ -16,7 +20,7 @@ const Main = () => {
 					subtitle="Найдите свое место с захватывающими фотографиями и большим количеством объявлений, включая вещи, которые вы больше нигде не найдете."
 					buttonOptions={{
 						children: 'Купить',
-						onClick: () => history.push('/search'),
+						onClick: () => history.push(`/search?rent_type=${buyType}`),
 					}}
 				/>
 				<ItemCard
@@ -25,7 +29,7 @@ const Main = () => {
 					subtitle="Мы создаем удобный онлайн-опыт — от покупок в крупнейшей сети проката до подачи заявки и оплаты аренды."
 					buttonOptions={{
 						children: 'Арендовать',
-						onClick: () => history.push('/search'),
+						onClick: () => history.push(`/search?rent_type=${rentType}`),
 					}}
 				/>
 				<ItemCard
