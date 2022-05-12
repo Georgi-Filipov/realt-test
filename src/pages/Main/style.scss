@@ -4,13 +4,8 @@
 		.item-card {
 			margin-right: 16px;
 			height: 450px;
-			transition: .3s;
 			&:last-child {
 				margin-right: 0;
-			}
-			&:hover {
-				z-index: 1;
-				transform: scale(1.05);
 			}
 		}
 	}

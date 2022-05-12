@@ -33,8 +33,8 @@ const Main = () => {
 					title="Подать объявление"
 					subtitle="Независимо от того, какой путь вы выберете, чтобы продать свой дом, мы можем помочь вам провести успешную продажу."
 					buttonOptions={{
-						children: 'Продать',
-						onClick: () => history.push('/search'),
+						children: 'Заполнить форму',
+						onClick: () => history.push('/add-post'),
 					}}
 				/>
 			</Row>
