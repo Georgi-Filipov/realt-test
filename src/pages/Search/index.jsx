@@ -22,7 +22,7 @@ const SearchPage = () => {
 	}, []);
 
 	const onFinish = values => {
-		console.log(values);
+		// console.log(values);
 	};
 
 	return (
