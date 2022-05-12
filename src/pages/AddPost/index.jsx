@@ -4,39 +4,20 @@ import { Col, Form, Row, Typography } from 'antd';
 import { Card, Input, Select, Radio, Button } from 'src/components';
 import { BUTTON_TYPES } from 'src/components/Button';
 import { createPost } from 'src/helpers/actions';
+import { useMinMax, useRequired } from 'src/helpers/hooks';
 import './style.scss';
-
-export const useRequired = () => ({
-	required: true,
-	message: 'Обязательное поле',
-});
-
-export const useMinMax =
-	(field, min = 0, max = 999) =>
-	() => ({
-		required: true,
-		validator: (_, value) => {
-			if (value >= min && value <= max) {
-				return Promise.resolve();
-			}
-			return Promise.reject(new Error(`Не в пределах от ${min} до ${max}`));
-		},
-	});
 
 const AddPost = () => {
 	const requireRule = useRequired();
-	const requireMinMax = useMinMax('area', 1, 9999);
+	const requireMinMax = useMinMax(1, 9999);
 	const dispatch = useDispatch();
 	const onFinish = values => {
 		dispatch(createPost(values));
 	};
 
-	const cities = useSelector(store => store.mainInfo.cities);
-	const rentTypes = useSelector(store => store.mainInfo.rent_types);
-	const locationTypes = useSelector(store => store.mainInfo.location_types);
-	const citiesOptions = cities.map(el => ({ value: el.id, label: el.city }));
-	const rentTypesOptions = rentTypes.map(el => ({ value: el.id, label: el.rent_type }));
-	const locationTypesOptions = locationTypes.map(el => ({ value: el.id, label: el.location_name }));
+	const citiesOptions = useSelector(store => store.mainInfo.cities);
+	const rentTypesOptions = useSelector(store => store.mainInfo.rent_types);
+	const locationTypesOptions = useSelector(store => store.mainInfo.location_types);
 
 	return (
 		<div className="page-add-post">
@@ -121,12 +102,12 @@ const AddPost = () => {
 							<Select
 								propsItem={{
 									name: 'location_type',
-									label: 'Тип места',
+									label: 'Тип местности',
 									rules: [requireRule],
 								}}
 								propsSelector={{
 									options: locationTypesOptions,
-									placeholder: 'Тип места',
+									placeholder: 'Тип местности',
 								}}
 							/>
 						</Col>

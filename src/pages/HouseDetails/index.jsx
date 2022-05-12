@@ -5,6 +5,7 @@ import { Typography } from 'antd';
 import { Card } from 'src/components/Card';
 import { getApartmentDetails } from 'src/helpers/actions';
 import './style.scss';
+import { clearApartmentInfo } from '../../store/reducers/apartmentsSlice';
 
 const HouseDetails = () => {
 	const { id } = useParams();
@@ -13,7 +14,9 @@ const HouseDetails = () => {
 
 	useEffect(() => {
 		dispatch(getApartmentDetails(id));
-		return () => {};
+		return () => {
+			dispatch(clearApartmentInfo());
+		};
 	}, []);
 
 	return (
@@ -23,8 +26,8 @@ const HouseDetails = () => {
 			<Typography.Text>
 				Цена: {apartment.city} {apartment.price} {apartment.currency}
 			</Typography.Text>
-			<Typography.Text>Тип Жилья: {apartment.location_type}</Typography.Text>
-			<Typography.Text>Адресс: {apartment.address}</Typography.Text>
+			<Typography.Text>Тип местности: {apartment.location_type}</Typography.Text>
+			<Typography.Text>Адрес: {apartment.address}</Typography.Text>
 			<Typography.Text>Дата размещения: {apartment.date}</Typography.Text>
 			<Typography.Text>Контактный телефон: {apartment.phone}</Typography.Text>
 			<Typography.Text>{apartment.description}</Typography.Text>

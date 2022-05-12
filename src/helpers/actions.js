@@ -76,7 +76,7 @@ export const getAllApartments = body => dispatch => {
 export const getApartmentDetails = id => dispatch => {
 	dispatch(setApartmentInfoLoading(true));
 	return fetchWrapper({
-		url: `apartment/${id}`,
+		url: `apartment/${id}/`,
 	})
 		.then(resp => {
 			dispatch(setApartmentInfo(resp));

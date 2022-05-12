@@ -10,10 +10,8 @@ import mainBg from 'src/assets/main-bg.png';
 import './style.scss';
 
 export const MainSearch = () => {
-	const cities = useSelector(store => store.mainInfo.cities);
-	const rentTypes = useSelector(store => store.mainInfo.rent_types);
-	const citiesOptions = cities.map(el => ({ value: el.id, label: el.city }));
-	const rentTypesOptions = rentTypes.map(el => ({ value: el.id, label: el.rent_type }));
+	const citiesOptions = useSelector(store => store.mainInfo.cities);
+	const rentTypesOptions = useSelector(store => store.mainInfo.rent_types);
 
 	const [form] = useForm();
 
