@@ -20,18 +20,21 @@ const HouseDetails = () => {
 	}, []);
 
 	return (
-		<Card className="page-house-detauls">
-			<img src={apartment.image} alt={apartment.title} />
-			<Typography.Title>{apartment.title}</Typography.Title>
-			<Typography.Text>
-				Цена: {apartment.city} {apartment.price} {apartment.currency}
-			</Typography.Text>
-			<Typography.Text>Тип местности: {apartment.location_type}</Typography.Text>
-			<Typography.Text>Адрес: {apartment.address}</Typography.Text>
-			<Typography.Text>Дата размещения: {apartment.date}</Typography.Text>
-			<Typography.Text>Контактный телефон: {apartment.phone}</Typography.Text>
-			<Typography.Text>{apartment.description}</Typography.Text>
-		</Card>
+		<div className="page-house-details">
+			<Card className="page-house-details__card">
+				<img className="page-house-details__image" src={apartment.image} alt={apartment.title} />
+				<div className="page-house-details__info">
+					<Typography.Title>{apartment.title}</Typography.Title>
+					<Typography.Text>{`Цена: ${apartment.price} ${apartment.currency}`}</Typography.Text>
+					<Typography.Text>Тип местности: {apartment.location_type}</Typography.Text>
+					<Typography.Text>Город: {apartment.city}</Typography.Text>
+					<Typography.Text>Адрес: {apartment.address}</Typography.Text>
+					<Typography.Text>Дата размещения: {apartment.date}</Typography.Text>
+					<Typography.Text>Контактный телефон: {apartment.phone}</Typography.Text>
+					<Typography.Text>{apartment.description}</Typography.Text>
+				</div>
+			</Card>
+		</div>
 	);
 };
 
