@@ -18,7 +18,6 @@ const Header = () => {
 
 	const onTabClick = link => {
 		history.push(link);
-		console.log(link);
 		setActiveTab(link);
 	};
 
@@ -32,6 +31,7 @@ const Header = () => {
 				<Row className="portal-header__tabs">
 					{HEADER_OPTIONS.map(el => (
 						<Button
+							key={el.href}
 							type={BUTTON_TYPES.TEXT}
 							onClick={() => onTabClick(el.href)}
 							className={cn({ active: activeTab === el.href })}>

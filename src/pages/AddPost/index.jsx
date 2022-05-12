@@ -1,16 +1,42 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Col, Form, Row, Typography } from 'antd';
 import { Card, Input, Select, Radio, Button } from 'src/components';
 import { BUTTON_TYPES } from 'src/components/Button';
 import { createPost } from 'src/helpers/actions';
 import './style.scss';
 
+export const useRequired = () => ({
+	required: true,
+	message: 'Обязательное поле',
+});
+
+export const useMinMax =
+	(field, min = 0, max = 999) =>
+	() => ({
+		required: true,
+		validator: (_, value) => {
+			if (value >= min && value <= max) {
+				return Promise.resolve();
+			}
+			return Promise.reject(new Error(`Не в пределах от ${min} до ${max}`));
+		},
+	});
+
 const AddPost = () => {
+	const requireRule = useRequired();
+	const requireMinMax = useMinMax('area', 1, 9999);
 	const dispatch = useDispatch();
 	const onFinish = values => {
 		dispatch(createPost(values));
 	};
+
+	const cities = useSelector(store => store.mainInfo.cities);
+	const rentTypes = useSelector(store => store.mainInfo.rent_types);
+	const locationTypes = useSelector(store => store.mainInfo.location_types);
+	const citiesOptions = cities.map(el => ({ value: el.id, label: el.city }));
+	const rentTypesOptions = rentTypes.map(el => ({ value: el.id, label: el.rent_type }));
+	const locationTypesOptions = locationTypes.map(el => ({ value: el.id, label: el.location_name }));
 
 	return (
 		<div className="page-add-post">
@@ -21,7 +47,7 @@ const AddPost = () => {
 						propsItem={{
 							name: 'title',
 							label: 'Заголовок',
-							rules: [],
+							rules: [requireRule],
 						}}
 						propsInput={{
 							placeholder: 'Заголовок',
@@ -33,7 +59,7 @@ const AddPost = () => {
 								propsItem={{
 									name: 'price',
 									label: 'Цена',
-									rules: [],
+									rules: [requireRule],
 								}}
 								propsInputNumber={{
 									placeholder: 'Цена',
@@ -45,24 +71,35 @@ const AddPost = () => {
 								propsItem={{
 									name: 'currency',
 									label: 'Валюта',
-									rules: [],
+									rules: [requireRule],
 								}}
-								propsSelect={{
+								propsSelector={{
 									placeholder: 'Валюта',
+									options: [
+										{
+											value: 'USD',
+											label: 'Доллар',
+										},
+										{
+											value: 'BY',
+											label: 'Рубли',
+										},
+									],
 								}}
 							/>
 						</Col>
 					</Row>
 					<Row gutter={[16, 0]}>
 						<Col span={12}>
-							<Input
+							<Select
 								propsItem={{
 									name: 'city',
 									label: 'Город',
-									rules: [],
+									rules: [requireRule],
 								}}
-								propsInput={{
+								propsSelector={{
 									placeholder: 'Город',
+									options: citiesOptions,
 								}}
 							/>
 						</Col>
@@ -70,8 +107,8 @@ const AddPost = () => {
 							<Input
 								propsItem={{
 									name: 'address',
-									label: 'Адресс',
-									rules: [],
+									label: 'Адрес',
+									rules: [requireRule],
 								}}
 								propsInput={{
 									placeholder: 'Адресс',
@@ -85,9 +122,10 @@ const AddPost = () => {
 								propsItem={{
 									name: 'location_type',
 									label: 'Тип места',
-									rules: [],
+									rules: [requireRule],
 								}}
-								propsSelect={{
+								propsSelector={{
+									options: locationTypesOptions,
 									placeholder: 'Тип места',
 								}}
 							/>
@@ -97,12 +135,9 @@ const AddPost = () => {
 								propsItem={{
 									name: 'rent_type',
 									label: 'Тип продажи',
-									rules: [],
+									rules: [requireRule],
 								}}
-								options={[
-									{ value: 1, label: 'type1' },
-									{ value: 2, label: 'type2' },
-								]}
+								options={rentTypesOptions}
 								propsRadioGroup={{
 									placeholder: 'Тип продажи',
 								}}
@@ -115,7 +150,7 @@ const AddPost = () => {
 								propsItem={{
 									name: 'year',
 									label: 'Год постройки',
-									rules: [],
+									rules: [requireRule],
 								}}
 								propsInputNumber={{
 									placeholder: 'Год постройки',
@@ -126,8 +161,8 @@ const AddPost = () => {
 							<Input.Number
 								propsItem={{
 									name: 'area',
-									label: 'Площаль',
-									rules: [],
+									label: 'Площаль (м2)',
+									rules: [requireMinMax],
 								}}
 								propsInputNumber={{
 									placeholder: 'Площаль',

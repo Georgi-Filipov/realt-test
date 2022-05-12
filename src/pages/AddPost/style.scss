@@ -4,7 +4,7 @@
 		width: 600px;
 
 		.ant-form-item {
-			margin-bottom: 8px;
+			margin-bottom: 16px;
 			flex-direction: column;
 
 			&-label {
@@ -12,6 +12,13 @@
 				label {
 					height: 32px;
 				}
+			}
+			&-explain-connected {
+				min-height: 0;
+				position: relative;
+			}
+			&-explain-error {
+				position: absolute;
 			}
 		}
 
