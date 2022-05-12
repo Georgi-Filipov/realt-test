@@ -1,22 +1,18 @@
 export const HEADER_OPTIONS = [
 	{
-		value: 'home',
-		label: 'Home',
+		title: 'Home',
 		href: '/',
 	},
 	{
-		value: 'search',
-		label: 'Search',
+		title: 'Search',
 		href: '/search',
 	},
 	{
-		value: 'about',
-		label: 'About',
+		title: 'About',
 		href: '/about',
 	},
 	{
-		value: 'contact-us',
-		label: 'Contact us',
+		title: 'Contact us',
 		href: '/contact-us',
 	},
 ];

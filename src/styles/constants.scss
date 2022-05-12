@@ -1,9 +1,9 @@
 //colors
 
-$primary: #007D51;
-$cyprus: #00393b;
-$jungle:#2BB174;
-$aquaDeep: #014945;
+$primary: #1890ff;
+$cyprus: #096dd9;
+$jungle: #40a9ff;
+$aquaDeep: mix(#096dd9, rgba(0, 0, 0, 0.1));
 
 $error: #D61B74;
 $errorSurface: #f8eae7;
@@ -19,7 +19,7 @@ $aquaHaze: #f4f7f8;
 $mineShaft: #222222;
 $mineShaft: #222222;
 $mercury: #e5e5e5;
-$emerald: #55c595;
+$emerald: #40a9ff;
 $bayOfMany: #215273;
 $keppel: #359d9e;
 $link: #0077D5;
@@ -28,10 +28,10 @@ $black: #000000;
 $cadetBlue: #A8B1BF;
 
 
-$magicMint: #92f2b3;
+$magicMint: #40a9ff;
 
-$magicMint: #92F2B3;
-$greenLabels: #014945;
+$magicMint: #40a9ff;
+$greenLabels: mix(#096dd9, rgba(0, 0, 0, 0.1));
 
 //backgrounds
 
@@ -44,10 +44,6 @@ $subMenu: 0px 4px 4px rgba(0, 0, 0, 0.25);
 // border-radius
 
 $borderRadius4: 4px;
-
-//gradients
-
-$gradientPortalBar: linear-gradient(180deg, #005A4B 0%, #2BB174 100%);;
 
 //others
 $heightTablePagHead: 111px;

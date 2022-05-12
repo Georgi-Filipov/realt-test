@@ -1,0 +1,25 @@
+.page-add-post {
+	.card-add-post {
+		margin: 0 auto;
+		width: 600px;
+
+		.ant-form-item {
+			margin-bottom: 8px;
+			flex-direction: column;
+
+			&-label {
+				text-align: start;
+				label {
+					height: 32px;
+				}
+			}
+		}
+
+		.form-footer {
+			margin-top: 24px;
+			width: 100%;
+			display: flex;
+			justify-content: end;
+		}
+	}
+}

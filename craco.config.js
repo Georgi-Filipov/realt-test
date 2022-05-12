@@ -9,9 +9,7 @@ module.exports = {
 					lessOptions: {
 						modifyVars: {
 							// btn
-							'@btn-default-color': '#007D51',
 							'@btn-default-bg': '#FFF',
-							'@btn-default-border': '#007D51',
 							'@btn-height-base': '40px',
 
 							'@btn-disable-color': '#FFF',
@@ -32,7 +30,6 @@ module.exports = {
 							// form
 							'@form-item-label-font-size': '16px',
 							'@form-item-margin-bottom': '8px',
-							'@label-color': '#014945',
 							// form
 							// select
 							'@select-border-color': ' #979797',
@@ -45,7 +42,6 @@ module.exports = {
 							'@modal-header-padding': '72px 0 0',
 							// modal
 							'@font-size-base': '16px',
-							'@primary-color': '#007D51',
 							'@border-radius-base': '2px',
 							'@text-color': '#222222',
 							'@text-color-secondary': '#A7A7A7',
@@ -67,7 +63,6 @@ module.exports = {
 							// pagination
 							'@pagination-item-size': '32px',
 							'@pagination-font-weight-active': 'bold',
-							'@pagination-item-bg-active': '#007D51',
 
 							// checkbox
 							'@checkbox-size': '22px',
