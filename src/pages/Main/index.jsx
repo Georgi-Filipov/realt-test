@@ -12,7 +12,7 @@ const Main = () => {
 			<Row justify="center" align="middle" className="usage">
 				<ItemCard
 					img="https://www.zillowstatic.com/s3/homepage/static/Buy_a_home.png"
-					title="Купить дом"
+					title="Купить жилье"
 					subtitle="Найдите свое место с захватывающими фотографиями и большим количеством объявлений, включая вещи, которые вы больше нигде не найдете."
 					buttonOptions={{
 						children: 'Купить',
@@ -20,20 +20,20 @@ const Main = () => {
 					}}
 				/>
 				<ItemCard
-					img="https://www.zillowstatic.com/s3/homepage/static/Sell_a_home.png"
-					title="Продать дом"
-					subtitle="Независимо от того, какой путь вы выберете, чтобы продать свой дом, мы можем помочь вам провести успешную продажу."
+					img="https://www.zillowstatic.com/s3/homepage/static/Rent_a_home.png"
+					title="Арендовать жилье"
+					subtitle="Мы создаем удобный онлайн-опыт — от покупок в крупнейшей сети проката до подачи заявки и оплаты аренды."
 					buttonOptions={{
-						children: 'Продать',
+						children: 'Арендовать',
 						onClick: () => history.push('/search'),
 					}}
 				/>
 				<ItemCard
-					img="https://www.zillowstatic.com/s3/homepage/static/Rent_a_home.png"
-					title="Орендовать дом"
-					subtitle="Мы создаем удобный онлайн-опыт — от покупок в крупнейшей сети проката до подачи заявки и оплаты аренды."
+					img="https://www.zillowstatic.com/s3/homepage/static/Sell_a_home.png"
+					title="Подать объявление"
+					subtitle="Независимо от того, какой путь вы выберете, чтобы продать свой дом, мы можем помочь вам провести успешную продажу."
 					buttonOptions={{
-						children: 'Арендовать',
+						children: 'Продать',
 						onClick: () => history.push('/search'),
 					}}
 				/>
