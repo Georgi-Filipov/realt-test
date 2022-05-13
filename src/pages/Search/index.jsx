@@ -30,14 +30,13 @@ const SearchPage = () => {
 		region: citiesOptions.find(({ value }) => value.toString() === queryParams.region),
 		rent_type: rentTypesOptions.find(({ value }) => value.toString() === queryParams.rent_type),
 	};
-	console.log(defaultParams);
 
 	useEffect(() => {
 		dispatch(getAllApartments(queryParams));
 		return () => dispatch(clearApartmentsList());
 	}, [queryParams.toString()]);
 
-	const onFinish = values => {
+	const onFinish = () => {
 		// console.log(values);
 	};
 
