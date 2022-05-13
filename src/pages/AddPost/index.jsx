@@ -108,7 +108,7 @@ const AddPost = () => {
 									rules: [requireRule],
 								}}
 								propsInput={{
-									placeholder: 'Адресс',
+									placeholder: 'Адрес',
 								}}
 							/>
 						</Col>
