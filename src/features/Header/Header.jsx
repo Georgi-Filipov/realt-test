@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Row } from 'antd';
 import cn from 'classnames';
@@ -12,14 +12,16 @@ import { BUTTON_TYPES } from '../../components/Button';
 
 const Header = () => {
 	const location = useLocation();
-	const [activeTab, setActiveTab] = useState(
-		HEADER_OPTIONS?.find(({ href }) => location.pathname.includes(href))?.href || '',
-	);
+	const [activeTab, setActiveTab] = useState('');
 
-	const onTabClick = link => {
-		history.push(link);
-		setActiveTab(link);
-	};
+	const onTabClick = link => history.push(link);
+
+	useEffect(() => {
+		const newLink =
+			HEADER_OPTIONS.find(({ href, exact }) => (exact ? location.pathname === href : location.pathname.includes(href)))
+				?.href || '';
+		setActiveTab(newLink);
+	}, [location.pathname]);
 
 	return (
 		<div className="portal-header">

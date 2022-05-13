@@ -2,6 +2,7 @@ export const HEADER_OPTIONS = [
 	{
 		title: 'Home',
 		href: '/',
+		exact: true,
 	},
 	{
 		title: 'Search',
