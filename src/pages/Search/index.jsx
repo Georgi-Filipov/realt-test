@@ -71,7 +71,7 @@ const SearchPage = () => {
 								rules: [],
 							}}
 							propsSelector={{
-								options: locationTypesOptions,
+								options: rentTypesOptions,
 								placeholder: 'Тип продажи',
 								defaultValue: defaultParams.rent_type,
 								allowClear: true,

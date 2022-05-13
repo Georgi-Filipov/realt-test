@@ -9,3 +9,4 @@ export { Checkbox } from './Checkbox';
 export { Datepicker } from './Datepicker';
 export { notification } from './Notification';
 export { Radio } from './Radio';
+export { Upload } from './Upload';

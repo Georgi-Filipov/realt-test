@@ -18,7 +18,6 @@
     }
   }
   .ant-form-item-control-input-content {
-    text-align: right;
 
     .ant-upload-list-item {
       text-align: left;
@@ -34,6 +33,17 @@
 
     .ant-upload-list-item {
       height: min-content;
+
+			.ant-upload-span {
+				height: 32px;
+				.ant-upload-list-item-card-actions-btn {
+					margin-right: 4px;
+					padding: 0;
+					border: 0;
+					height: 24px;
+					width: 24px;
+				}
+			}
       .ant-upload-text-icon {
         display: none;
       }

@@ -1,13 +1,15 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Col, Form, Row, Typography } from 'antd';
-import { Card, Input, Select, Radio, Button } from 'src/components';
+import { useForm } from 'antd/es/form/Form';
+import { Card, Input, Select, Radio, Button, Upload } from 'src/components';
 import { BUTTON_TYPES } from 'src/components/Button';
 import { createPost } from 'src/helpers/actions';
 import { useMinMax, useRequired } from 'src/helpers/hooks';
 import './style.scss';
 
 const AddPost = () => {
+	const [form] = useForm();
 	const requireRule = useRequired();
 	const requireMinMax = useMinMax(1, 9999);
 	const dispatch = useDispatch();
@@ -23,7 +25,7 @@ const AddPost = () => {
 		<div className="page-add-post">
 			<Card className="card-add-post">
 				<Typography.Title>Создание объявления</Typography.Title>
-				<Form onFinish={onFinish}>
+				<Form form={form} onFinish={onFinish}>
 					<Input
 						propsItem={{
 							name: 'title',
@@ -32,6 +34,11 @@ const AddPost = () => {
 						}}
 						propsInput={{
 							placeholder: 'Заголовок',
+						}}
+					/>
+					<Upload.ListFiles
+						propsItem={{
+							name: 'images',
 						}}
 					/>
 					<Row gutter={[16, 0]}>
@@ -66,12 +73,8 @@ const AddPost = () => {
 											label: 'Евро',
 										},
 										{
-											value: 'EUR',
-											label: 'Евро',
-										},
-										{
 											value: 'UAH',
-											label: 'Гравна',
+											label: 'Гривна',
 										},
 										{
 											value: 'BYN',

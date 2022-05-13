@@ -1,11 +1,9 @@
 import React from 'react';
 import cn from 'classnames';
 import { ReactComponent as BinIcon } from 'src/assets/svg/Bin.svg';
-import './upload.list-files.scss';
 import { Upload, Form, Row } from 'antd';
-import { Button } from '../Button';
-import { notification } from '../Notification';
-import { BTN_TXT } from '../../constants';
+import { Button, notification } from 'src/components';
+import './upload.list-files.scss';
 
 export const ListFiles = ({ className, form, ...props }) => {
 	const beforeUpload = file => {
@@ -41,7 +39,7 @@ export const ListFiles = ({ className, form, ...props }) => {
 				{...props.propsUpload}>
 				<Row>
 					<Button type="link" className="upload-list-files_text">
-						{BTN_TXT.UPLOAD_FILES}
+						Загрузить фотографии
 					</Button>
 				</Row>
 			</Upload>
