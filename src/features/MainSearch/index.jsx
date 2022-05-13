@@ -4,7 +4,6 @@ import { Form, Typography } from 'antd';
 import { useForm } from 'antd/es/form/Form';
 import { Select } from 'src/components/Select';
 import { Button, BUTTON_TYPES } from 'src/components/Button';
-import { Error } from 'src/components/Notification/notification.error';
 import { history } from 'src/router';
 import mainBg from 'src/assets/main-bg.png';
 import './style.scss';
@@ -16,11 +15,12 @@ export const MainSearch = () => {
 	const [form] = useForm();
 
 	const onFinish = values => {
-		const empty = Object.entries(values).find(([_, value]) => typeof value === 'undefined');
-		const emptyText = empty?.[0] === 'city' ? 'Заполните полес "Городом"' : 'заполните поле с "Типом покупки"';
-		if (empty) {
-			Error({ description: emptyText });
-		} else history.push(`/search?city=${values.city}&rent_type=${values.rent_type}`);
+		const params = values;
+		for (const key in values) {
+			if (typeof values[key] === 'undefined') delete params[key];
+		}
+		const query = new URLSearchParams(params).toString();
+		history.push(`/search${query ? `?${query}` : ''}`);
 	};
 
 	return (

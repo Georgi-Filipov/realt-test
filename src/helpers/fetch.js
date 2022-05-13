@@ -21,7 +21,6 @@ export function fetchWrapper(
 	}
 	if (method === 'GET' && !query) {
 		let str = '';
-		// eslint-disable-next-line no-restricted-syntax
 		for (const key in body) {
 			if (body[key]) {
 				str += str ? '&' : '?';
