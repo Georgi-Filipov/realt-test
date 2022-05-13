@@ -11,7 +11,7 @@ export const Success = ({ description = '', duration = 5, bottom = 50, message, 
 		icon: null,
 		closeIcon: <CloseIcon />,
 		duration,
-		message: `Success! ${message}` || 'Success!',
+		message: `${message}` || 'Успех!',
 		description,
 	});
 };

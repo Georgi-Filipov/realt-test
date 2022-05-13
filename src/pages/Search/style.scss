@@ -43,4 +43,16 @@
 			margin-top: 8px;
 		}
 	}
+
+	.empty-search {
+		height: 480px;
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		img {
+			margin-bottom: 16px;
+		}
+	}
 }

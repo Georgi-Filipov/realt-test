@@ -17,6 +17,10 @@ import {
 	clearApartmentsList,
 	setApartmentsListLoading,
 } from 'src/store/reducers/apartmentsSlice';
+import { Success } from 'src/components/Notification/notification.success';
+import { ROUTES } from 'src/router/constants';
+import { Error } from 'src/components/Notification/notification.error';
+import { history } from 'src/router';
 
 export const getAllCities = body => dispatch =>
 	fetchWrapper({
@@ -58,7 +62,8 @@ export const getAllCategories = body => dispatch =>
 		})
 		.catch(() => dispatch(clearCategories()));
 
-export const getAllApartments = body => dispatch => {
+export const getAllApartments = (body, clear) => dispatch => {
+	if (clear) dispatch(clearApartmentsList());
 	dispatch(setApartmentsListLoading(true));
 	return fetchWrapper({
 		url: 'all-apartments',
@@ -94,5 +99,12 @@ export const createPost = body => dispatch => {
 		url: `apartment`,
 		method: 'POST',
 		body,
-	});
+	})
+		.then(resp => {
+			Success({ description: 'Пост был успешно создан.', message: 'Создано!' });
+			history.push(ROUTES.PORTAL);
+		})
+		.catch(resp => {
+			Error({ description: 'Пост не был создан.' });
+		});
 };

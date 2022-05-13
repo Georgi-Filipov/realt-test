@@ -11,6 +11,6 @@ export const useMinMax =
 			if (value >= min && value <= max) {
 				return Promise.resolve();
 			}
-			return Promise.reject(new Error(`Не в пределах от ${min} до ${max}`));
+			return Promise.reject(new Error(`В пределах от ${min} до ${max}`));
 		},
 	});

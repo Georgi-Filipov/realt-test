@@ -62,8 +62,24 @@ const AddPost = () => {
 											label: 'Доллар',
 										},
 										{
-											value: 'BY',
-											label: 'Рубли',
+											value: 'EUR',
+											label: 'Евро',
+										},
+										{
+											value: 'EUR',
+											label: 'Евро',
+										},
+										{
+											value: 'UAH',
+											label: 'Гравна',
+										},
+										{
+											value: 'BYN',
+											label: 'Рубль бел.',
+										},
+										{
+											value: 'RUB',
+											label: 'Рубль рос.',
 										},
 									],
 								}}

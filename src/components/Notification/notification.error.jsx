@@ -11,7 +11,7 @@ export const Error = ({ description = '', duration = 5, bottom = 50, message, pl
 		icon: null,
 		closeIcon: <CloseIcon />,
 		duration,
-		message: `Error: ${message}` || 'Error!',
+		message: message ? `Ошибка: ${message}` : 'Ошибка!',
 		// eslint-disable-next-line react/no-danger
 		description: <div dangerouslySetInnerHTML={{ __html: description }} />,
 	});
