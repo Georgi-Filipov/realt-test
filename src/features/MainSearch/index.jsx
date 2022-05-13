@@ -35,7 +35,7 @@ export const MainSearch = () => {
 					<Select
 						propsSelector={{ options: citiesOptions, placeholder: 'Город' }}
 						propsItem={{
-							name: 'city',
+							name: 'region',
 							rules: [],
 						}}
 					/>

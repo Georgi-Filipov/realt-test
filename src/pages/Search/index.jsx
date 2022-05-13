@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { Col, Form, Row, Typography } from 'antd';
 import { Select, Input, Card, Button } from 'src/components';
@@ -8,16 +8,34 @@ import { clearApartmentsList } from 'src/store/reducers/apartmentsSlice';
 import { BUTTON_TYPES } from 'src/components/Button';
 import './style.scss';
 
+const useQuery = () => {
+	const location = useLocation();
+	const queryString = new URLSearchParams(location.search);
+	const params = {};
+	for (const [key, value] of queryString.entries()) {
+		params[key] = value;
+	}
+	return params;
+};
+
 const SearchPage = () => {
+	const queryParams = useQuery();
 	const dispatch = useDispatch();
 	const apartmentsList = useSelector(store => store.apartments.apartmentsList);
 	const citiesOptions = useSelector(store => store.mainInfo.cities);
 	const locationTypesOptions = useSelector(store => store.mainInfo.location_types);
+	const rentTypesOptions = useSelector(store => store.mainInfo.rent_types);
+
+	const defaultParams = {
+		region: citiesOptions.find(({ value }) => value.toString() === queryParams.region),
+		rent_type: rentTypesOptions.find(({ value }) => value.toString() === queryParams.rent_type),
+	};
+	console.log(defaultParams);
 
 	useEffect(() => {
-		dispatch(getAllApartments());
+		dispatch(getAllApartments(queryParams));
 		return () => dispatch(clearApartmentsList());
-	}, []);
+	}, [queryParams.toString()]);
 
 	const onFinish = values => {
 		// console.log(values);
@@ -29,23 +47,25 @@ const SearchPage = () => {
 				<Row gutter={[16, 0]}>
 					<Col span={8}>
 						<Select
-							propsSelector={{ options: citiesOptions, placeholder: 'Город' }}
+							propsSelector={{ options: citiesOptions, placeholder: 'Город', defaultValue: defaultParams.region }}
 							propsItem={{
-								name: 'city',
+								name: 'region',
 								label: 'Город',
 								rules: [],
 							}}
 						/>
 					</Col>
 					<Col span={8}>
-						<Input
+						<Select
 							propsItem={{
-								name: 'address',
-								label: 'Адрес',
+								name: 'rent_type',
+								label: 'Тип продажи',
 								rules: [],
 							}}
-							propsInput={{
-								placeholder: 'Адресс',
+							propsSelector={{
+								options: locationTypesOptions,
+								placeholder: 'Тип продажи',
+								defaultValue: defaultParams.rent_type,
 							}}
 						/>
 					</Col>
