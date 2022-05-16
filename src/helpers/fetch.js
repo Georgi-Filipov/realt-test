@@ -1,8 +1,7 @@
 import fetch from 'isomorphic-fetch';
-import { Error } from '../components/Notification/notification.error';
-import { Success } from '../components/Notification/notification.success';
+import { Success } from 'src/components/Notification/notification.success';
 
-export const API_HOST = 'https://gipsyshit.pythonanywhere.com';
+export const API_HOST = process.env.API_HOST || 'https://gipsyshit.pythonanywhere.com';
 
 export function fetchWrapper(
 	{ url, method = 'GET', query = '', body = null, headers = {}, messages = {} },

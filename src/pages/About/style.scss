@@ -1,0 +1,34 @@
+.page-about {
+	margin: 0 auto;
+	max-width: 600px;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+
+	&__row {
+		display: flex;
+		padding-bottom: 16px;
+		margin-bottom: 32px;
+		border-bottom: 1px solid #9ea8b7;
+
+		&:last-child {
+			border-bottom: 0;
+		}
+		span.ant-typography {
+			margin-bottom: 16px;
+		}
+		img {
+			margin-right: 16px;
+			width: 200px;
+			object-fit: cover;
+		}
+
+		&:nth-child(2n) img {
+			margin-right: 0;
+			margin-left: 16px;
+		}
+	}
+}
