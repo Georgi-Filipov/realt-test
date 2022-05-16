@@ -3,6 +3,7 @@
 .ant-notification-notice-error{
   padding: 12px 14px;
   background-color: $error;
+	color: $white !important;
   .ant-notification-notice-icon{
     display: none;
   }

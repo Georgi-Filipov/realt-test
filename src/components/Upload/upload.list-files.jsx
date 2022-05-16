@@ -8,9 +8,9 @@ import './upload.list-files.scss';
 export const ListFiles = ({ className, form, ...props }) => {
 	const beforeUpload = file => {
 		const isJpgOrPng = file.type === 'image/jpeg' || file.type === 'image/png';
-		if (!isJpgOrPng) notification.error({ message: 'You can only upload JPG/PNG file!' });
+		if (!isJpgOrPng) notification.error({ message: 'Доспупны JPG/PNG форматы файлов!' });
 		const isLt2M = file.size / 1024 / 1024 < 2;
-		if (!isLt2M) notification.error({ message: 'Image must smaller than 2MB!' });
+		if (!isLt2M) notification.error({ message: 'Привышер размер картинки в 2MB!' });
 		return isJpgOrPng && isLt2M;
 	};
 

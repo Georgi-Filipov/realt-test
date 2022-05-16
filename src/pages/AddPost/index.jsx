@@ -1,20 +1,30 @@
-import React from 'react';
+import React, { useCallback, useState } from 'react';
+import moment from 'moment';
 import { useDispatch, useSelector } from 'react-redux';
 import { Col, Form, Row, Typography } from 'antd';
 import { useForm } from 'antd/es/form/Form';
 import { Card, Input, Select, Radio, Button, Upload } from 'src/components';
 import { BUTTON_TYPES } from 'src/components/Button';
 import { createPost } from 'src/helpers/actions';
-import { useMinMax, useRequired } from 'src/helpers/hooks';
+import { useMinMax, usePhone, useRequired } from 'src/helpers/hooks';
 import './style.scss';
 
 const AddPost = () => {
 	const [form] = useForm();
 	const requireRule = useRequired();
+	const phoneRule = usePhone();
 	const requireMinMax = useMinMax(1, 9999);
 	const dispatch = useDispatch();
-	const onFinish = values => {
-		dispatch(createPost(values));
+	const onFinish = ({ images, ...values }) => {
+		const image = images?.[0].originFileObj;
+		if (image) delete image.uid;
+		const data = {
+			...values,
+			image,
+			date: moment().format('YYYY-MM-DD'),
+		};
+
+		dispatch(createPost(data));
 	};
 
 	const citiesOptions = useSelector(store => store.mainInfo.cities);
@@ -39,6 +49,11 @@ const AddPost = () => {
 					<Upload.ListFiles
 						propsItem={{
 							name: 'images',
+							rules: [requireRule],
+						}}
+						propsUpload={{
+							maxCount: 7,
+							listType: 'picture',
 						}}
 					/>
 					<Row gutter={[16, 0]}>
@@ -93,7 +108,7 @@ const AddPost = () => {
 						<Col span={12}>
 							<Select
 								propsItem={{
-									name: 'city',
+									name: 'region',
 									label: 'Город',
 									rules: [requireRule],
 								}}
@@ -120,7 +135,7 @@ const AddPost = () => {
 						<Col span={12}>
 							<Select
 								propsItem={{
-									name: 'location_type',
+									name: 'location',
 									label: 'Тип местности',
 									rules: [requireRule],
 								}}
@@ -166,6 +181,32 @@ const AddPost = () => {
 								}}
 								propsInputNumber={{
 									placeholder: 'Площаль',
+								}}
+							/>
+						</Col>
+					</Row>
+					<Row gutter={[16, 0]}>
+						<Col span={8}>
+							<Input.Number
+								propsItem={{
+									name: 'room_count',
+									label: 'Количество комнат',
+									rules: [requireMinMax],
+								}}
+								propsInputNumber={{
+									placeholder: 'Количество комнат',
+								}}
+							/>
+						</Col>
+						<Col span={16}>
+							<Input
+								propsItem={{
+									name: 'phone',
+									label: 'Контактный телефон',
+									rules: [phoneRule],
+								}}
+								propsInputNumber={{
+									placeholder: 'Контактный телефон',
 								}}
 							/>
 						</Col>

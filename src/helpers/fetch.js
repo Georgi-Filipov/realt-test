@@ -1,3 +1,4 @@
+import fetch from 'isomorphic-fetch';
 import { Error } from '../components/Notification/notification.error';
 import { Success } from '../components/Notification/notification.success';
 
@@ -31,10 +32,9 @@ export function fetchWrapper(
 	}
 	return fetch(`${API_HOST}/api/${url}${query}`, requestParams).then(resp => {
 		if (resp.status >= 200 && resp.status < 400) {
-			if (resp.status === 201) Success({ description: messages.success });
+			if (resp.status === 201) Success({ description: messages.success || 'Успех!' });
 			return resp.json().catch(() => {});
 		}
-		Error({ description: 'Не валидные параметры запроса' });
-		return {};
+		throw messages.error || 'Ошибка!';
 	});
 }

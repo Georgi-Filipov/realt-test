@@ -95,11 +95,20 @@ export const getApartmentDetails = id => dispatch => {
 };
 
 export const createPost = body => dispatch => {
-	return fetchWrapper({
-		url: `apartment`,
-		method: 'POST',
-		body,
-	})
+	const formData = new FormData();
+
+	// eslint-disable-next-line guard-for-in
+	for (const key in body) {
+		formData.append(key, body[key]);
+	}
+	return fetchWrapper(
+		{
+			url: `add-apartment`,
+			method: 'POST',
+			body: formData,
+		},
+		true,
+	)
 		.then(resp => {
 			Success({ description: 'Пост был успешно создан.', message: 'Создано!' });
 			history.push(ROUTES.PORTAL);

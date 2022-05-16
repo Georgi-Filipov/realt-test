@@ -5,6 +5,7 @@
   display: flex;
   align-items: center;
   padding: 12px 14px;
+	color: $white !important;
   background-color: $warningSurface;
   .ant-notification-notice-icon{
     display: none;
