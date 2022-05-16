@@ -12,19 +12,16 @@ export const mainInfoSlice = createSlice({
 	initialState,
 	reducers: {
 		setCities: (state, { payload }) => {
-			state.cities = [...state.cities, ...payload.map(el => ({ value: el.id, label: el.city }))];
+			state.cities = payload.map(el => ({ value: el.id, label: el.city }));
 		},
 		setLocationTypes: (state, { payload }) => {
-			state.location_types = [
-				...state.location_types,
-				...payload.map(el => ({ value: el.id, label: el.location_name })),
-			];
+			state.location_types = payload.map(el => ({ value: el.id, label: el.location_name }));
 		},
 		setRentTypes: (state, { payload }) => {
-			state.rent_types = [...state.rent_types, ...payload.map(el => ({ value: el.id, label: el.rent_type }))];
+			state.rent_types = payload.map(el => ({ value: el.id, label: el.rent_type }));
 		},
 		setCategories: (state, { payload }) => {
-			state.categories = [...state.categories, ...payload];
+			state.categories = payload;
 		},
 		clearCities: state => {
 			state.cities = [];
