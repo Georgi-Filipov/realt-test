@@ -29,7 +29,7 @@ const HouseDetails = () => {
 					<Typography.Text>Тип местности: {apartment.location_type}</Typography.Text>
 					<Typography.Text>Город: {apartment.city}</Typography.Text>
 					<Typography.Text>Адрес: {apartment.address}</Typography.Text>
-					<Typography.Text>Дата размещения: {apartment.date}</Typography.Text>
+					<Typography.Text>Общая площадь: {apartment.area} м²</Typography.Text>
 					<Typography.Text>Контактный телефон: {apartment.phone}</Typography.Text>
 					<Typography.Text>{apartment.description}</Typography.Text>
 				</div>

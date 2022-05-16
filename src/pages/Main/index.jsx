@@ -16,10 +16,10 @@ const Main = () => {
 			<Row justify="center" align="middle" className="usage">
 				<ItemCard
 					img="https://www.zillowstatic.com/s3/homepage/static/Buy_a_home.png"
-					title="Купить жилье"
+					title="Найти жилье"
 					subtitle="Найдите свое место с захватывающими фотографиями и большим количеством объявлений, включая вещи, которые вы больше нигде не найдете."
 					buttonOptions={{
-						children: 'Купить',
+						children: 'Найти',
 						onClick: () => history.push(`/search?rent_type=${buyType}`),
 					}}
 				/>
