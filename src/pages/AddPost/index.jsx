@@ -149,12 +149,12 @@ const AddPost = () => {
 							<Radio.Group
 								propsItem={{
 									name: 'rent_type',
-									label: 'Тип продажи',
+									label: 'Тип сделки',
 									rules: [requireRule],
 								}}
 								options={rentTypesOptions}
 								propsRadioGroup={{
-									placeholder: 'Тип продажи',
+									placeholder: 'Тип сделки',
 								}}
 							/>
 						</Col>

@@ -67,12 +67,12 @@ const SearchPage = () => {
 						<Select
 							propsItem={{
 								name: 'rent_type',
-								label: 'Тип продажи',
+								label: 'Тип сделки',
 								rules: [],
 							}}
 							propsSelector={{
 								options: rentTypesOptions,
-								placeholder: 'Тип продажи',
+								placeholder: 'Тип сделки',
 								defaultValue: defaultParams.rent_type,
 								allowClear: true,
 							}}
@@ -189,7 +189,7 @@ const PlaceCard = ({ image, title, ...props }) => (
 				<Typography.Text className="info-item">{`Стоимосить: ${props.price} ${props.currency}`}</Typography.Text>
 				<Typography.Text className="info-item">Город: {props.city}</Typography.Text>
 				<Typography.Text className="info-item">Тип местности: {props.location_type}</Typography.Text>
-				<Typography.Text className="info-item">Тип продажи: {props.rent_type}</Typography.Text>
+				<Typography.Text className="info-item">Тип сделки: {props.rent_type}</Typography.Text>
 				<Typography.Text className="info-item">Общая площадь: {props.area} м²</Typography.Text>
 			</div>
 		</Card>

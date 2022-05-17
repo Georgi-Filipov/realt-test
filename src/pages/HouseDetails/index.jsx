@@ -26,6 +26,7 @@ const HouseDetails = () => {
 				<div className="page-house-details__info">
 					<Typography.Title>{apartment.title}</Typography.Title>
 					<Typography.Text>{`Цена: ${apartment.price} ${apartment.currency}`}</Typography.Text>
+					<Typography.Text>Тип сделки: {apartment.rent_type}</Typography.Text>
 					<Typography.Text>Тип местности: {apartment.location_type}</Typography.Text>
 					<Typography.Text>Город: {apartment.city}</Typography.Text>
 					<Typography.Text>Адрес: {apartment.address}</Typography.Text>

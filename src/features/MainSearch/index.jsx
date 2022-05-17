@@ -28,7 +28,7 @@ export const MainSearch = () => {
 			<img className="main-search__image" src={mainBg} alt="" />
 			<div className="main-search__form-wrap">
 				<Typography.Title level={3}>
-					Выберите город и тип покупки <br />
+					Выберите город и тип сделки <br />
 					чтобы найти лучшие предложения
 				</Typography.Title>
 				<Form form={form} onFinish={onFinish} className="main-search__form">
@@ -40,7 +40,7 @@ export const MainSearch = () => {
 						}}
 					/>
 					<Select
-						propsSelector={{ options: rentTypesOptions, placeholder: 'Тип покупки' }}
+						propsSelector={{ options: rentTypesOptions, placeholder: 'Тип сделки' }}
 						propsItem={{
 							name: 'rent_type',
 							rules: [],
